@@ -9,6 +9,8 @@
                         <th>Departure Date</th>
                 </thead>
                 <tbody>
+
+                        <% var flights = flights.sort((a, b) => a.departs - b.departs) %>
                         <% flights.forEach(function(flight) { %>
                         <tr>
                                 <td><%= flight.airline %></td>
