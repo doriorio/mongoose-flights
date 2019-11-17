@@ -1,21 +1,40 @@
 <%- include('../partials/header') %>
-<title>New Flight</title>
-</head>
-<body>
-    <h2>✈️Enter a New Flight✈️</h2>
-    <form action="/flights" method="POST"></form>
+
+        <script type="text/javascript">
+        var datePicker = document.getElementById("date-picker");
+        let c;
+        function getDate(){
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth();
+            var day = d.getDate();
+            var c = new Date(year+1, month, day);
+            return c;
+        }
+        
+
+        </script>
+                      
+    <div class="jumbotron"><h2> ✈️ Enter a New Flight ✈️ </h2></div>
+    <form action="/flights" method="POST">
     <label>Airline:
-            <input type="text" name="airline">
+                <select name="airline">
+                        <option value="American">American</option>
+                        <option value="Southwest">Southwest</option>
+                        <option value="United">United</option>
+
+                </select>
     </label><br>
     <label>Flight Number:
             <input type="number" name="flightNo">
     </label><br>
     <label>Departure Date:
-            <input type="datetime-local" name="departs">
+            <input type="date" name="departs" id="date-picker" value="c" required pattern="\d{4}-\d{2}-\d{2}">
     </label><br>
-
         <%- include('../partials/footer') %>
+
+        <input type="submit" value="Add Flight">
+</form>
 </body>
 </html>
-
 

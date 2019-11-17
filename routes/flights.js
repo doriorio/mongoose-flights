@@ -1,8 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var flightsCtrl = require('../controllers/flights')
+var flightsCtrl = require('../controllers/flights');
 
-/* GET users listing. */
+/* GET flights listing. */
+
+router.get('/', flightsCtrl.index);
+
 router.get('/new', flightsCtrl.new);
+router.post('/', flightsCtrl.create);
+
+
 
 module.exports = router;
