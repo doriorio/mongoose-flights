@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+
+        <div class="jumbotron"><h2>Flights Listing</h2></div>
+        <center>
+        <section id="show-page">
+                <strong><div>Airline: </strong>
+                <span><%= flight.airline %></span></div>
+                <strong><div>Flight Number:</strong>
+                <span><%= flight.flightNo %></span></div>
+                <strong><div>Departure Date:</strong>
+                <span><%= flight.departs %></span></div>
+                <strong><div>Flight destination:</strong>
+                <span><%= flight.destinations %></span></div>
+                <strong><div>Airport:</strong>
+                <span><%= flight.airport %></div></span>
+        </section>
+        <br><br><h2>+ Arrival Info</h2>
+
+        <form id="add-arrival-form" method="POST"
+  action="/flights/<%= flight._id %>/reviews">
+                        <label><br>Airport:
+                        <select name="airport">
+                                <option value="AUS">Austin, TX</option>
+                                <option value="DAL">Dallas, TX</option>
+                                <option value="LAX">Los Angeles, California</option>
+                                <option value="SAN">San Diego, California</option>
+                                <option value="SEA">Seattle, Washington</option>
+                        </select>
+                        </label>
+                        <label>Arrival Date
+                                <input type="datetime-local" name="arrival">
+                        </label>
+                <input type="submit" value="Add Arrival">
+
+                </form>
+
+
+        </center>
+
+
+
+        <%- include('../partials/footer') %>
+
+
+</body>
+</html>
+

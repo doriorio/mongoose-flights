@@ -31,6 +31,15 @@
     <label>Departure Date:
             <input type="date" name="departs" id="date-picker" value="c" required pattern="\d{4}-\d{2}-\d{2}">
     </label><br>
+    <label><br>Airport:
+        <select name="airport">
+                <option value="AUS">Austin, TX</option>
+                <option value="DAL">Dallas, TX</option>
+                <option value="LAX">Los Angeles, California</option>
+                <option value="SAN">San Diego, California</option>
+                <option value="SEA">Seattle, Washington</option>
+        </select>
+</label>
         <%- include('../partials/footer') %>
 
         <input type="submit" value="Add Flight">

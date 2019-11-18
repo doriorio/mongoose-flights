@@ -4,9 +4,9 @@
         <center>
         <table>
                 <thead>
-                        <th>Airline</th>
-                        <th>Flight #</th>
-                        <th>Departure Date</th>
+                        <th>Airline  </th>
+                        <th> Flight #  </th>
+                        <th> Departure Date  </th>
                 </thead>
                 <tbody>
 
@@ -15,14 +15,31 @@
                         <tr>
                                 <td><%= flight.airline %></td>
                                 <td><%= flight.flightNo %></td>
-                                <td><%= flight.departs %></td>
+                                <td class="departs"><%= flight.departs %></td>
+                                <% if (flight.departs < Date.now()){
+                                        console.log("thing");
+                                     };
+                                      %>
+                                <td><a href="/flights/<%= flight._id %>">Details</a></td>
                         </tr>
                         <% }) %>
                 </tbody>
         </table>
         </center>
 
+<script>
+let departElem = document.querySelectorAll('.departs');
+var d= Date(Date.now()).toString()
 
+departElem.forEach(function(e){
+        if (e.innerText < d){
+                console.log(this + "This");
+                e.style.color = "red";
+        };
+});
+
+
+</script>
 
         <%- include('../partials/footer') %>
 
