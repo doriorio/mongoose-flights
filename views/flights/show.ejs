@@ -1,23 +1,35 @@
 <%- include('../partials/header') %>
 
         <div class="jumbotron"><h2>Flights Listing</h2></div>
-        <center>
+
         <section id="show-page">
+               
                 <strong><div>Airline: </strong>
                 <span><%= flight.airline %></span></div>
                 <strong><div>Flight Number:</strong>
                 <span><%= flight.flightNo %></span></div>
                 <strong><div>Departure Date:</strong>
                 <span><%= flight.departs %></span></div>
-                <strong><div>Flight destination:</strong>
-                <span><%= flight.destinations %></span></div>
-                <strong><div>Airport:</strong>
-                <span><%= flight.airport %></div></span>
-        </section>
-        <br><br><h2>+ Arrival Info</h2>
+                <strong><div>Flight destinations:</strong><br>
+                <table>
 
+                <% flight.destinations.forEach(des => { %>
+                       
+                               <strong>Arrival time:</strong>
+                   
+                                <%= des.arrival %><br>
+                      
+                               <strong>Arrival airport:</strong>
+                       
+                        <%= des.airport %>
+                       
+                <% }) %>
+        </table>
+        </section>
+        <br><br><h2>Add Arrival Info</h2>
+        <center>
         <form id="add-arrival-form" method="POST"
-  action="/flights/<%= flight._id %>/reviews">
+  action="/flights/<%= flight._id %>?_method=PUT" >
                         <label><br>Airport:
                         <select name="airport">
                                 <option value="AUS">Austin, TX</option>

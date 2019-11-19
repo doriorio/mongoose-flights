@@ -16,10 +16,7 @@
                                 <td><%= flight.airline %></td>
                                 <td><%= flight.flightNo %></td>
                                 <td class="departs"><%= flight.departs %></td>
-                                <% if (flight.departs < Date.now()){
-                                        console.log("thing");
-                                     };
-                                      %>
+
                                 <td><a href="/flights/<%= flight._id %>">Details</a></td>
                         </tr>
                         <% }) %>
