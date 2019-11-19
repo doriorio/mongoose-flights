@@ -35,6 +35,10 @@ var flightSchema = new Schema({
         }
     },
     destinations: [destinationSchema],
+    tickets: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket'
+    }],
     airport: {
         type: String,
         enum: ['AUS','DAL','LAX','SAN','SEA'],
@@ -44,6 +48,5 @@ var flightSchema = new Schema({
 },
 {timestamps: { createdAt: 'created_at' }},
 );
-
 
 module.exports = mongoose.model('Flight', flightSchema);

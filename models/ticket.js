@@ -15,6 +15,6 @@ var ticketSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Flight'
     }],
-})
+});
 
 module.exports = mongoose.model('Ticket', ticketSchema);

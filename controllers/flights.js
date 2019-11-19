@@ -41,20 +41,17 @@ function show(req,res) {
   Flight.findById(req.params.id, function(err, flight){
     Ticket.find({flight: flight._id}, function(err, tickets) {
       res.render('flights/show', {
-        title: `${req.params.id} flight`, 
+        title: 'flight', 
         flight,
-        tickets
+        tickets,
       });
+      console.log(flight, tickets);
     });
   });
 }
 
 function update(req, res){
-  // Flight.findByIdAndUpdate(req.params.id, req.body, {new: true }, function(err, flight){
-  //   console.log(req.params.id)
-  //   console.log(req.body)
-  //   res.redirect(`/flights/${req.params.id}`);
-  // });
+ 
   Flight.findById(req.params.id, function(err, flight){
     flight.destinations.push(req.body)
     flight.save(function(err) {

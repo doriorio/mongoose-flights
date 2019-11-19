@@ -3,7 +3,7 @@
         <div class="jumbotron"><h2>Flights Listing</h2></div>
 
         <section id="show-page">
-               
+                <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
                 <strong><div>Airline: </strong>
                 <span><%= flight.airline %></span></div>
                 <strong><div>Flight Number:</strong>
@@ -11,8 +11,14 @@
                 <strong><div>Departure Date:</strong>
                 <span><%= flight.departs %></span></div>
                 <strong><div>Flight destinations:</strong><br>
-                <table>
+                <strong><div>Flight tickets:</strong><br>
+                        <% tickets.forEach(tick => { %>
+                <li><span><%= tick.seat %></span> <span>$<%= tick.price %></span></li>
+                <% }) %>
+                <br>
 
+                <table>
+<br>
                         <% flight.destinations.forEach(des => { %>
                        
                 <strong>Arrival time:</strong><br>
@@ -24,6 +30,7 @@
                 <% }) %>
         </table>
         </section>
+       
         <br><br><h2>Add Arrival Info</h2>
         <center>
         <form id="add-arrival-form" method="POST"
@@ -46,6 +53,7 @@
 
 
         </center>
+
 
         <%- include('../partials/footer') %>
 
