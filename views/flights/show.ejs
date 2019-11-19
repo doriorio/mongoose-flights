@@ -13,15 +13,13 @@
                 <strong><div>Flight destinations:</strong><br>
                 <table>
 
-                <% flight.destinations.forEach(des => { %>
+                        <% flight.destinations.forEach(des => { %>
                        
-                               <strong>Arrival time:</strong>
-                   
-                                <%= des.arrival %><br>
+                <strong>Arrival time:</strong><br>
+                <%= des.arrival %><br>
                       
-                               <strong>Arrival airport:</strong>
-                       
-                        <%= des.airport %>
+                <strong>Arrival airport:</strong><br>
+                <%= des.airport %>
                        
                 <% }) %>
         </table>
@@ -49,10 +47,9 @@
 
         </center>
 
-
-
         <%- include('../partials/footer') %>
 
+                                
 
 </body>
 </html>
