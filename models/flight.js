@@ -35,10 +35,10 @@ var flightSchema = new Schema({
         }
     },
     destinations: [destinationSchema],
-    tickets: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Ticket'
-    }],
+    // tickets: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Ticket'
+    // }],
     airport: {
         type: String,
         enum: ['AUS','DAL','LAX','SAN','SEA'],

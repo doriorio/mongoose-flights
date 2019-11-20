@@ -2,14 +2,11 @@
 <div class="jumbotron"><h2>Add Ticket</h2></div>
 <center>
 <form id="add-ticket-form" action="/flights/<%= id %>/tickets" method="POST">
-    <label>Seat
+    <label>Seat- A-F + 1-99
         <input name="seat" required pattern="[A-F][1-9]\d?">
     </label><br>
     <label>Price
     <input name="price">
-    </label><br>
-    <label>Flight
-    <input name="flight">
     </label><br>
     <input type="submit" value="Add Ticket">
 </form>

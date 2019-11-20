@@ -2,8 +2,7 @@
 
         <div class="jumbotron"><h2>Flights Listing</h2></div>
 
-        <section id="show-page">
-                <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+        <section id="show-page" style="padding: 10px">
                 <strong><div>Airline: </strong>
                 <span><%= flight.airline %></span></div>
                 <strong><div>Flight Number:</strong>
@@ -15,23 +14,22 @@
                         <% tickets.forEach(tick => { %>
                 <li><span><%= tick.seat %></span> <span>$<%= tick.price %></span></li>
                 <% }) %>
-                <br>
 
-                <table>
-<br>
-                        <% flight.destinations.forEach(des => { %>
-                       
+                <br>
+                <a class="btn btn-success"href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+                <br> <% flight.destinations.forEach(des => { %>
+
                 <strong>Arrival time:</strong><br>
                 <%= des.arrival %><br>
                       
                 <strong>Arrival airport:</strong><br>
-                <%= des.airport %>
+                <%= des.airport %><br>
                        
                 <% }) %>
         </table>
         </section>
        
-        <br><br><h2>Add Arrival Info</h2>
+        <br><h3 style="padding: 10px">Add Arrival Info</h3>
         <center>
         <form id="add-arrival-form" method="POST"
   action="/flights/<%= flight._id %>?_method=PUT" >
